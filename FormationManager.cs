@@ -4,14 +4,23 @@ public class FormationManager
 {
     public List<CardData> formacao = new List<CardData>();
 
-    public void Adicionar(CardData carta)
+    public bool Adicionar(CardData carta)
     {
-        if (formacao.Count < 6)
-            formacao.Add(carta);
+        if (carta == null)
+            return false;
+
+        if (formacao.Count >= 6)
+            return false;
+
+        if (formacao.Contains(carta))
+            return false;
+
+        formacao.Add(carta);
+        return true;
     }
 
-    public void Remover(CardData carta)
+    public bool Remover(CardData carta)
     {
-        formacao.Remove(carta);
+        return formacao.Remove(carta);
     }
 }
