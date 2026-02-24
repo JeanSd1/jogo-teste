@@ -20,4 +20,12 @@ public class CardInstance
     {
         return vidaAtual > 0;
     }
+
+    public float VidaPercentual()
+    {
+        if (data.vida <= 0)
+            return 0f;
+
+        return (float)vidaAtual / data.vida;
+    }
 }
